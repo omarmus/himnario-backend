@@ -13,7 +13,7 @@ module.exports = function (models) {
     number = number.padStart(3, '0');
     console.log('Número a buscar', number);
     // read image file
-    let filename = `${process.cwd()}/files/scores/${number}.png`;
+    let filename = `${process.cwd()}/public/scores/${number}.png`;
     console.log('FILENAME 1', filename);
     if (fs.existsSync(filename)) {
       readFile(filename, res);

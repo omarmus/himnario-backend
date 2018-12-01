@@ -24,11 +24,20 @@ module.exports = function (sequelize) {
     arranger: {
       type: Sequelize.STRING(100)
     },
+    adapted: {
+      type: Sequelize.STRING(100)
+    },
+    traductor: {
+      type: Sequelize.STRING(100)
+    },
     reference: {
       type: Sequelize.STRING(100)
     },
     tone: {
       type: Sequelize.STRING(20)
+    },
+    pages: {
+      type: Sequelize.INTEGER(1)
     }
   }, {
     timestamps: false

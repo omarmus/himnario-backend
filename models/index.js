@@ -39,6 +39,19 @@ function init (app, sequelize) {
   // Cargando todos los modelos que se encuentran en la carpeta models y en sus subcarpetas
   let models = util.loadModels(__dirname, sequelize, { exclude: ['index.js'] });
 
+  // Creando asociaciones
+  console.log('MODELS', models);
+  const { himnos, categories, hymns_x_categories, details } = models;
+
+  details.belongsTo(himnos, { foreignKey: { name: 'id_hymn', allowNull: false }, as: 'hymn' });
+  himnos.hasMany(details, { foreignKey: { name: 'id_hymn', allowNull: false }, as: 'hymn' });
+
+  hymns_x_categories.belongsTo(himnos, { foreignKey: { name: 'id_hymn', allowNull: false }, as: 'hymn' });
+  himnos.hasMany(hymns_x_categories, { foreignKey: { name: 'id_hymn', allowNull: false } });
+
+  hymns_x_categories.belongsTo(categories, { foreignKey: { name: 'id_category', allowNull: false }, as: 'category' });
+  categories.hasMany(hymns_x_categories, { foreignKey: { name: 'id_category', allowNull: false }, as: 'category' });
+
   // Creando manejadores sequelize-handler para cada modelo
   let handlers = {};
 
