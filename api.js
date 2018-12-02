@@ -7,6 +7,17 @@ const path = require('path');
 const api = asyncify(express.Router());
 
 module.exports = function (models) {
+  api.get('/detalle/:number', async (req, res) => {
+    let { number } = req.params;
+    let detalle = await models.details.findAll({
+      where: {
+        id_hymn: number
+      },
+      order: ['order']
+    });
+    res.send(detalle);
+  });
+
   console.log('CWD', process.cwd());
   api.get('/read-image/:number', (req, res) => {
     let { number } = req.params;
