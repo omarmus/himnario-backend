@@ -29,7 +29,7 @@ sequelize
 .then(start);
 
 function start () {
-  app.listen(port, '192.168.1.10', () => {
+  app.listen(port, () => {
     console.log(`Servidor iniciado en el puerto: ${port}`);
   });
 }
