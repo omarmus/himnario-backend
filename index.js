@@ -25,8 +25,8 @@ app.use('/api', api(models));
 
 // Synchronize our models and start the application
 sequelize
-.sync()
-.then(start);
+  .sync()
+  .then(start);
 
 function start () {
   app.listen(port, () => {
