@@ -19,6 +19,12 @@ module.exports = function (sequelize) {
     },
     content: {
       type: Sequelize.TEXT
+    },
+    time: {
+      type: Sequelize.STRING(20)
+    },
+    time2: {
+      type: Sequelize.STRING(20)
     }
   }, {
     timestamps: false

@@ -5223,6 +5223,7 @@ let items = [
   }
 ];
 
+items = [];
 module.exports = {
   up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('hymns_x_categories', items, {});
